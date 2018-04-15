@@ -1,4 +1,5 @@
 import '../styles/index.scss';
+import * as $ from 'jquery';
 
 class App {
     
@@ -8,4 +9,10 @@ class App {
 
 }
 
-var app = new App();
+$(document).ready(() => {
+    
+    console.log("jQuery is working!");
+
+    var app = new App();
+    
+});
