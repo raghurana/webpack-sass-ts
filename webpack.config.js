@@ -1,7 +1,7 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path                = require('path');
+const HtmlWebpackPlugin   = require('html-webpack-plugin');
+const CleanWebpackPlugin  = require('clean-webpack-plugin');
+const ExtractTextPlugin   = require('extract-text-webpack-plugin');
 
 var extractPlugin = new ExtractTextPlugin({
   filename: 'site.css'
@@ -9,12 +9,12 @@ var extractPlugin = new ExtractTextPlugin({
 
 module.exports = {
 
-  entry: './scripts/index.ts',
+  entry: './src/scripts/index.ts',
 
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/
       },
@@ -32,12 +32,12 @@ module.exports = {
   },
  
   output: {
-    filename: 'app-bundle.js',
+    filename: 'site-bundle.js',
     path: path.resolve(__dirname, 'dist')    
   }, 
 
   devServer: {    
-    contentBase: '.',
+    contentBase: './src',
     watchContentBase: true
   },
 
@@ -46,8 +46,8 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
 
     new HtmlWebpackPlugin({
-        title: 'Custom template',        
-        template: 'index.html'  
+        title: 'Template for webpack sass and Typescript',        
+        template: './src/index.html'  
     }), 
     
     extractPlugin

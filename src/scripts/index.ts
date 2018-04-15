@@ -3,7 +3,7 @@ import '../styles/index.scss';
 class App {
     
     constructor() {
-        console.log("Typescript is working !");
+        console.log("Typescript is working!");
     }
 
 }
