@@ -1,0 +1,8 @@
+@import "colors";
+
+#primaryBlock {
+    background-color: $primary-bg;
+    color: $primary-text;
+    padding: 5px;
+    border: 1px solid black;
+}
