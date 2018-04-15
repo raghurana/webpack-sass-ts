@@ -23,6 +23,23 @@ module.exports = {
         use: extractPlugin.extract({
           use: ['css-loader', 'sass-loader']
         })
+      },
+      {
+        test: /\.html$/,
+        use: ['html-loader']
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'img/',
+              publicPath: 'img/'
+            }
+          }
+        ]
       }
     ]
   },
@@ -45,8 +62,7 @@ module.exports = {
 
     new CleanWebpackPlugin(['dist']),
 
-    new HtmlWebpackPlugin({
-        title: 'Template for webpack sass and Typescript',        
+    new HtmlWebpackPlugin({        
         template: './src/index.html'  
     }), 
     
